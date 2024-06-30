@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-np
+spec:
+  type: NodePort
+  selector:
+   component: frontend
+   project: expense
+   environment: dev
+  ports:
+    - protocol: TCP
+      port: 80 #service-port
+      targetPort: 9376 #targetport
+      nodeport: 32760 # Fixing the nodeport or else k8's alloacte random

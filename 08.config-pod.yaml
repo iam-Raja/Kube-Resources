@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: config-pod
+spec:
+  containers:
+    - name: nginx
+      image: nginx
+      envFrom:
+      - configMapRef:
+          name: config-test
+      # env:
+      #  - name: Team
+      #    valueFrom:
+      #    configMapkeyRef:
+      #      name: config-test
+      #      key: captain
+      #  - name: year
+      #    valueFrom:
+      #    configMapkeyRef:
+      #      name: config-test
+      #      key: Year

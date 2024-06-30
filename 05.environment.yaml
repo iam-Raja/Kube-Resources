@@ -1,0 +1,15 @@
+apiVersion: v1
+kind : Pod
+metadata:
+ name : env-test
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    env:
+    - name : Format
+      value: T20
+    - name: Location
+      value: westindies
+        
+  
