@@ -8,6 +8,6 @@ spec:
    project: expense
    environment: dev
   ports:
-    - protocol: TCP
-      port: 80 #service-port
-      targetPort: 9376 #targetport
+  - protocol: TCP
+    port: 80 #service-port
+    targetPort: 9376 #targetport
