@@ -1,6 +1,8 @@
 ## Deploy driver ##
+**1.Create the volume in same node AZ**
 
-**EBS Drivers:Github-aws-ebs-csi-driver**
+**2.EBS Drivers:Github-aws-ebs-csi-driver**
+
 * You may deploy the EBS CSI driver via Kustomize
 
 ```
@@ -28,8 +30,9 @@ kubectl apply -f public-ecr-driver.yaml
 ```
 kubectl get pods -n kube-system
 ```
+**3.Attach Ebs policy to noses-roles**
 
-* ADD The Ebs policy to noses-roles
 ```
 AmazonEBSCSIDriverPolicy
 ```
+
