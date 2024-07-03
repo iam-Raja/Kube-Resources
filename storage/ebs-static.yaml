@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: static-pv
+  name: ebs-static
 spec:
   accessModes:
   - ReadWriteOnce
   capacity:
-    storage: 5Gi
+    storage: 15Gi
   csi:
     driver: ebs.csi.aws.com
     fsType: ext4
@@ -15,23 +15,23 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: ebs-claim-pvc
+  name: ebs-static
 spec:
   storageClassName: "" # Empty string must be explicitly set otherwise default StorageClass will be set
-  volumeName: static-pv
+  volumeName: ebs-static
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 4Gi
+      storage: 10Gi
 
 ---
 apiVersion: v1
 kind: Pod
 metadata:
-  name: nginx
+  name: ebs-static
   labels:
-   purpose: static-ebs
+   purpose: ebs-static
    project: expense
 spec:
   containers:
@@ -45,7 +45,7 @@ spec:
   volumes:
   - name: persistent-storage
     persistentVolumeClaim:
-      claimName: ebs-claim-pvc
+      claimName: ebs-static
 
 ---
 
@@ -56,7 +56,7 @@ metadata:
 spec:
   type: LoadBalancer
   selector:
-    purpose: static-ebs
+    purpose: ebs-static
     project: expense
   ports:
   - protocol: TCP
