@@ -12,18 +12,18 @@ spec:
     fsType: ext4
     volumeHandle: vol-0fa8845b77d9c42f0 ## update with ebs volume
 ---
-# apiVersion: v1
-# kind: PersistentVolumeClaim
-# metadata:
-#   name: ebs-claim-pvc
-# spec:
-#   storageClassName: "" # Empty string must be explicitly set otherwise default StorageClass will be set
-#   volumeName: static-pv
-#   accessModes:
-#     - ReadWriteOnce
-#   resources:
-#     requests:
-#       storage: 4Gi
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: ebs-claim-pvc
+spec:
+  storageClassName: "" # Empty string must be explicitly set otherwise default StorageClass will be set
+  volumeName: static-pv
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 4Gi
 
 # ---
 # apiVersion: v1
