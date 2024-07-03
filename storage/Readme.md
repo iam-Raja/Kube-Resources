@@ -23,3 +23,13 @@ kubectl kustomize \
 ```
 kubectl apply -f public-ecr-driver.yaml
 ```
+
+**Finally Check is drivers installed**
+```
+kubectl get pods -n kube-system
+```
+
+* ADD The Ebs policy to noses-roles
+```
+AmazonEBSCSIDriverPolicy
+```
