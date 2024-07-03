@@ -1,5 +1,7 @@
 ## Deploy driver ##
 **1.Create the volume in same node AZ**
+* EBS in same region
+* EFS anywhere
 
 **2.EBS Drivers:Github-aws-ebs-csi-driver**
 
@@ -40,5 +42,11 @@ AmazonEBSCSIDriverPolicy
 ```
 AmazonEFSCSIDriverPolicy
 ```
+
+**4.To access App's created with EbS**
+
+**5.To access App's created with EFS**
+* Allow Ec2-instance-SG on NFS protocol with EFS-SG
+* While deleting cluster remove this manually added sg rule first and EFS Volume
 
 
