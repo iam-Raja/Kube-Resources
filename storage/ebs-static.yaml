@@ -10,55 +10,55 @@ spec:
   csi:
     driver: ebs.csi.aws.com
     fsType: ext4
-    volumeHandle: ## update with ebs volume
+    volumeHandle: vol-0fa8845b77d9c42f0 ## update with ebs volume
 ---
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: ebs-claim-pvc
-spec:
-  storageClassName: "" # Empty string must be explicitly set otherwise default StorageClass will be set
-  volumeName: static-pv
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 4Gi
+# apiVersion: v1
+# kind: PersistentVolumeClaim
+# metadata:
+#   name: ebs-claim-pvc
+# spec:
+#   storageClassName: "" # Empty string must be explicitly set otherwise default StorageClass will be set
+#   volumeName: static-pv
+#   accessModes:
+#     - ReadWriteOnce
+#   resources:
+#     requests:
+#       storage: 4Gi
 
----
-apiVersion: v1
-kind: Pod
-metadata:
-  name: nginx
-  labels:
-   purpose: static-ebs
-   project: expense
-spec:
-  containers:
-  - name: nginx
-    image: nginx
-    volumeMounts:
-    - name: persistent-storage
-      mountPath: /usr/share/nginx/html
-  nodeSelector:
-    topology.kubernetes.io/zone: us-east-1c    #update the node az
-  volumes:
-  - name: persistent-storage
-    persistentVolumeClaim:
-      claimName: ebs-claim-pvc
+# ---
+# apiVersion: v1
+# kind: Pod
+# metadata:
+#   name: nginx
+#   labels:
+#    purpose: static-ebs
+#    project: expense
+# spec:
+#   containers:
+#   - name: nginx
+#     image: nginx
+#     volumeMounts:
+#     - name: persistent-storage
+#       mountPath: /usr/share/nginx/html
+#   nodeSelector:
+#     topology.kubernetes.io/zone: us-east-1c    #update the node az
+#   volumes:
+#   - name: persistent-storage
+#     persistentVolumeClaim:
+#       claimName: ebs-claim-pvc
 
----
+# ---
 
-apiVersion: v1
-kind: Service
-metadata:
-  name: nginx-lb
-spec:
-  type: LoadBalancer
-  selector:
-    purpose: static-ebs
-    project: expense
-  ports:
-  - protocol: TCP
-    port: 80 #service-port
-    targetPort: 80
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: nginx-lb
+# spec:
+#   type: LoadBalancer
+#   selector:
+#     purpose: static-ebs
+#     project: expense
+#   ports:
+#   - protocol: TCP
+#     port: 80 #service-port
+#     targetPort: 80
