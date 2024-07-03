@@ -47,6 +47,6 @@ AmazonEFSCSIDriverPolicy
 
 **5.To access App's created with EFS**
 * Allow Ec2-instance-SG on NFS protocol with EFS-SG
-* While deleting cluster remove this manually added sg rule first and EFS Volume
+* While deleting cluster remove this manually added sg rule first and EFS Volume later delete cluster
 
 
