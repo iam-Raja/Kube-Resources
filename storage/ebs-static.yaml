@@ -41,7 +41,7 @@ spec:
     - name: persistent-storage
       mountPath: /usr/share/nginx/html
   nodeSelector:
-    topology.kubernetes.io/zone: us-east-1c    #update the node az
+    topology.kubernetes.io/zone: us-east-1d    #update the node az
   volumes:
   - name: persistent-storage
     persistentVolumeClaim:
