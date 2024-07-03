@@ -32,7 +32,7 @@ kubectl apply -f public-ecr-driver.yaml
 ```
 kubectl get pods -n kube-system
 ```
-**3.Attach Ebs policy to noses-roles**
+**3.Attach Ebs policy to nodes-roles**
 * EBS
 ```
 AmazonEBSCSIDriverPolicy
