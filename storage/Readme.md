@@ -45,6 +45,8 @@ AmazonEFSCSIDriverPolicy
 
 **4.To access App's created with EbS**
 
+* Make sure LB-SG is opened on valid ports
+
 **5.To access App's created with EFS**
 * Allow Ec2-instance-SG on NFS protocol with EFS-SG
 * While deleting cluster remove this manually added sg rule first and EFS Volume later delete cluster
