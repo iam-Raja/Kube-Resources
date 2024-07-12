@@ -52,7 +52,8 @@ AmazonEFSCSIDriverPolicy
 * While deleting cluster remove this manually added sg rule first and EFS Volume later delete cluster
 
 
-![Screenshot 2024-07-12 114943](https://github.com/user-attachments/assets/799a5e0c-2a18-45ca-9063-9ca57fd22fe4)
+![Screenshot 2024-07-12 122453](https://github.com/user-attachments/assets/9d8f1e67-95c9-47c0-9477-008f4018dc66)
+
 
 ![Screenshot 2024-07-12 120548](https://github.com/user-attachments/assets/82d5daa7-2581-4cfb-8f3a-24228bfee3dc)
 
